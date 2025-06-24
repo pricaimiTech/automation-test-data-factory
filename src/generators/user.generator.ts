@@ -60,7 +60,7 @@ export class UserGenerator {
       zipcode: faker.location.zipCode(),
       state: faker.location.state(),
       city: faker.location.city(),
-      mobile_number: faker.phone.number({style: 'international'})
+      mobile_number: faker.phone.number()
     };
 
     return {

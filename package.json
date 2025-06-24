@@ -7,13 +7,20 @@
   "scripts": {
     "build": "tsc",
     "build:watch": "tsc --watch",
-    "clean": "rimraf dist",
+    "clean": "rimraf dist coverage",
     "prebuild": "npm run clean",
     "test": "jest",
-    "lint": "eslint src/**/*.ts",
-    "lint:fix": "eslint src/**/*.ts --fix",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:verbose": "jest --verbose",
+    "example:basic": "ts-node examples/basic-usage.ts",
+    "example:advanced": "ts-node examples/advanced-usage.ts",
+    "examples": "npm run example:basic && npm run example:advanced",
+    "lint": "eslint src/**/*.ts tests/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts tests/**/*.ts --fix",
+    "dev": "ts-node src/index.ts",
     "prepublishOnly": "npm run build",
-    "dev": "ts-node src/index.ts"
+    "start": "npm run examples"
   },
   "directories": {
     "example": "examples",
@@ -32,18 +39,19 @@
     "url": "https://github.com/pricaimiTech/automation-test-data-factory/issues"
   },
   "homepage": "https://github.com/pricaimiTech/automation-test-data-factory#readme",
-   "dependencies": {
+  "dependencies": {
     "@faker-js/faker": "^8.0.0"
   },
   "devDependencies": {
+    "@types/jest": "^30.0.0",
     "@types/node": "^20.0.0",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "eslint": "^8.0.0",
-    "jest": "^29.0.0",
+    "jest": "^29.7.0",
+    "rimraf": "^5.0.0",
     "ts-jest": "^29.0.0",
     "ts-node": "^10.0.0",
-    "typescript": "^5.0.0",
-    "rimraf": "^5.0.0"
+    "typescript": "^5.0.0"
   }
 }
